@@ -1,0 +1,24 @@
+name: "CI — PixelForge Quality Check"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-validate:
+    name: "Lint & Validate"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
+
+      - name: Validate HTML files
+        run: htmlhint "**/*.html"

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1223">
+  <meta name="description" content="Convert WEBP to SVG in your browser. Private image converter with previews, quality settings, and batch downloads. Free and no uploads.">
+  <title>WEBP to SVG Converter — PixelForge</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient ambient-a" aria-hidden="true"></div><div class="ambient ambient-b" aria-hidden="true"></div>
+<header class="nav wrap">
+  <a href="./" class="logo" aria-label="PixelForge home"><span class="logo-square" aria-hidden="true">✦</span> pixel<span>forge</span><span class="tool-label">/ tools</span></a>
+  <div class="nav-links"><span class="nav-chip"><span class="live-dot"></span> 100% in-browser</span><a href="#how">How it works <span aria-hidden="true">↗</span></a></div>
+</header>
+<main>
+ <section class="hero wrap">
+  <div class="eyebrow"><span class="eyebrow-icon">✧</span> FREE IMAGE CONVERTER <span class="eyebrow-sep">·</span> NO ACCOUNT REQUIRED</div>
+  <h1>Convert <span class="format-pill source-pill">WEBP</span> to<br><span class="format-pill target-pill">SVG</span> <span class="gradient-word">effortlessly.</span></h1>
+  <p class="hero-sub">A beautifully simple way to convert your images. Fast, secure, and entirely in your browser—your files never leave your device.</p>
+  <div class="trust-strip"><span>✧ Completely free</span><span>♧ Private by design</span><span>⚡ No installation</span></div>
+ </section>
+ <section class="workspace wrap" aria-label="Image conversion workspace">
+  <div class="panel upload-panel">
+   <div class="panel-top"><div><div class="step-kicker">STEP 01</div><h2>Add your WEBP images</h2></div><span class="panel-badge">INPUT · WEBP</span></div>
+   <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose WEBP files">
+    <div class="upload-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg></div>
+    <strong>Drop your files here</strong>
+    <span class="drop-info">or click to browse from your device</span>
+    <span class="choose-btn">Choose WEBP files <span aria-hidden="true">↗</span></span>
+    <small>Supported: WEBP · Up to 25 MB per file</small>
+    <input id="file-input" type="file" accept=".webp" multiple hidden>
+   </div>
+   <div id="base64-area" class="base64-area" hidden><label for="base64-text">Or paste a Base64 image / data URL</label><textarea id="base64-text" placeholder="data:image/png;base64,iVBORw0KGgo..." spellcheck="false"></textarea><button id="add-base64" class="text-button" type="button">Add pasted image <span aria-hidden="true">→</span></button></div>
+   <div class="queue-head"><span>YOUR FILES <span id="queue-count" class="number-badge">0</span></span><button id="clear-btn" type="button" class="text-button" disabled>Clear all</button></div>
+   <div class="queue" id="queue"><div class="empty-state">Files you add will appear here.</div></div>
+  </div>
+  <aside class="panel settings-panel">
+   <div class="panel-top"><div><div class="step-kicker">STEP 02</div><h2>Conversion settings</h2></div><span class="panel-badge output-badge">OUTPUT · SVG</span></div>
+   <div class="convert-flow"><span class="square format-square">WEBP</span><span class="flow-dash"></span><span class="flow-arrow">→</span><span class="flow-dash"></span><span class="square format-square out-square">SVG</span></div>
+   <label class="control-label" for="size-select">IMAGE SIZE <span>ⓘ</span></label>
+   <select id="size-select" class="select"><option value="1">Keep original size</option><option value="0.75">75% of original</option><option value="0.5">50% of original</option><option value="0.25">25% of original</option><option value="custom">Custom width</option></select>
+   <div id="custom-box" hidden><label class="control-label" for="custom-width">CUSTOM WIDTH (PX)</label><input class="select" id="custom-width" type="number" min="1" max="16000" value="1200"></div>
+   <div id="quality-control"><label class="control-label" for="quality">IMAGE QUALITY <strong id="quality-value">90%</strong></label><input type="range" id="quality" min="40" max="100" value="90" step="5"><div class="range-ends"><span>Smaller file</span><span>Higher quality</span></div></div>
+   <div class="privacy-note"><span class="lock-icon" aria-hidden="true">♧</span><div><strong>Your privacy matters</strong><span>Images are processed locally in your browser, never uploaded to a server.</span></div></div>
+   <button id="convert-btn" class="primary-btn" disabled type="button"><span id="convert-label">Convert to SVG</span><span aria-hidden="true">→</span></button>
+   <div class="settings-footer"><span id="status-text" role="status">Add files to get started</span><span>NO WATERMARK</span></div>
+  </aside>
+ </section>
+ <section id="results-section" class="results wrap" hidden aria-label="Converted files"><div class="results-heading"><div><div class="step-kicker">STEP 03</div><h2>Your converted files <span id="result-count" class="number-badge">0</span></h2></div><button type="button" id="download-all" class="secondary-btn">Download all as ZIP ↓</button></div><div id="results-list" class="result-list"></div></section>
+ <section class="benefits wrap" id="how"><div class="benefit"><span class="benefit-symbol">01 /</span><h3>Choose your images</h3><p>Select or drag in one or many WEBP files from your device.</p></div><div class="benefit"><span class="benefit-symbol">02 /</span><h3>Fine-tune your output</h3><p>Adjust image dimensions and quality before you convert.</p></div><div class="benefit"><span class="benefit-symbol">03 /</span><h3>Download instantly</h3><p>Save your SVG files individually or as a single ZIP archive.</p></div></section>
+ <div class="bottom-notice wrap" id="format-notice">SVG output embeds a raster image. It does not trace pixels into editable vector shapes.</div>
+</main>
+<footer class="footer wrap"><div class="logo"><span class="logo-square">✦</span> pixel<span>forge</span></div><p>Made for creators, built for privacy.</p><span>© 2026 PixelForge · Open-source image tools</span></footer>
+<script src="app.js" defer></script>
+</body>
+</html>
